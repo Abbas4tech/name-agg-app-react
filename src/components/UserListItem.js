@@ -1,9 +1,9 @@
 import React from "react";
 
-const UserListItem = ({ name, age }) => {
-  console.log({ name, age });
+const UserListItem = ({ id, name, age, listItemDeleteHandler }) => {
+  console.log({ id, name, age });
   return (
-    <li>
+    <li onClick={() => listItemDeleteHandler(id)}>
       <p>
         {name} ({age} years Old!)
       </p>

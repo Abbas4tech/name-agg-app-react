@@ -22,10 +22,14 @@ function App() {
     setData([...data, userData]);
   };
 
+  const deleteHandler = (id) => {
+    setData(data.filter((user) => user.id !== id));
+  };
+
   return (
     <>
       <Form getFormData={FormDataHandler} />
-      <UserList users={data} />
+      <UserList users={data} deleteHandler={deleteHandler} />
     </>
   );
 }

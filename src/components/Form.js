@@ -9,6 +9,8 @@ const Form = (props) => {
     const dataFromForm = { name, age, id: Math.random().toString() };
     console.log(dataFromForm);
     props.getFormData(dataFromForm);
+    setAge("");
+    setName("");
   };
 
   return (
