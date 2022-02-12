@@ -19,7 +19,7 @@ const Form = (props) => {
         <label>Name :</label>
         <input
           type="text"
-          value={name}
+          value={name} //========== Two Way Binding
           onChange={(event) => setName(event.target.value)}
         />
         <label>Age :</label>

@@ -6,13 +6,13 @@ const UserList = (props) => {
   console.log(props);
   console.log(props.deleteHandler);
 
-  const listItemDeleteHandler = (id) => {
+  const listItemDeleteHandler = (id) => { //=========== Lifting the stateUp
     props.deleteHandler(id);
   };
 
   return (
     <ul>
-      {props.users.length === 0 ? (
+      {props.users.length === 0 ? ( //============= Conditional Statement
         <NoData />
       ) : (
         props.users.map((user) => (
