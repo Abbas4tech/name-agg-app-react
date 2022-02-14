@@ -6,12 +6,13 @@ const UserList = (props) => {
   console.log(props);
   console.log(props.deleteHandler);
 
-  const listItemDeleteHandler = (id) => { //=========== Lifting the stateUp
+  const listItemDeleteHandler = (id) => {
+    //=========== Lifting the stateUp
     props.deleteHandler(id);
   };
 
   return (
-    <ul>
+    <ul className="w-11/12 h-full max-w-2xl p-4 mx-auto my-2 rounded-lg bg-slate-300">
       {props.users.length === 0 ? ( //============= Conditional Statement
         <NoData />
       ) : (

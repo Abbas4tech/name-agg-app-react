@@ -30,20 +30,25 @@ const Form = (props) => {
 
   return (
     <>
-      <form onSubmit={formHandler}>
-        <label>Name :</label>
+      <form
+        onSubmit={formHandler}
+        className="w-11/12 max-w-2xl p-4 mx-auto my-8 bg-gray-200 rounded-md"
+      >
+        <label className="block mb-2 font-bold bg-inherit">Name :</label>
         <input
           type="text"
           // value={name} //========== Two Way Binding
           // onChange={(event) => setName(event.target.value)}
           ref={enteredName}
+          className="block w-full p-0.5 mb-2 border-2 border-black bg-inherit"
         />
-        <label>Age :</label>
+        <label className="block mb-2 font-bold bg-inherit">Age :</label>
         <input
           type="number"
           // value={age}
           // onChange={(event) => setAge(event.target.value)}
           ref={enteredAge}
+          className="block w-full p-0.5 mb-2 border-2 border-black bg-inherit"
         />
         {/* <button type="submit">Submit</button> */}
         <Button type="submit">submit</Button>
