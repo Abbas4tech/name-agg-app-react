@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import Button from "./UI/Button";
 
 const Form = (props) => {
   // const [name, setName] = useState("");
@@ -44,7 +45,8 @@ const Form = (props) => {
           // onChange={(event) => setAge(event.target.value)}
           ref={enteredAge}
         />
-        <button type="submit">Submit</button>
+        {/* <button type="submit">Submit</button> */}
+        <Button type="submit">submit</Button>
       </form>
     </>
   );
