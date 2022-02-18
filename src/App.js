@@ -1,7 +1,6 @@
 import { useState } from "react";
-import Form from "./components/Form";
-import Modal from "./components/UI/Modal";
-import UserList from "./components/UserList";
+import Form from "./components/Form/Form";
+import UserList from "./components/Users/UserList";
 
 const usersData = [
   {
