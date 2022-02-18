@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Form from "./components/Form";
+import Modal from "./components/UI/Modal";
 import UserList from "./components/UserList";
 
 const usersData = [
@@ -28,8 +29,10 @@ function App() {
 
   return (
     <>
-      <Form getFormData={FormDataHandler} />
-      <UserList users={data} deleteHandler={deleteHandler} />
+      <section className="flex flex-col items-center justify-between w-11/12 max-w-2xl mx-auto">
+        <Form getFormData={FormDataHandler} />
+        <UserList users={data} deleteHandler={deleteHandler} />
+      </section>
     </>
   );
 }

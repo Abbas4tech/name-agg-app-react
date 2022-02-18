@@ -1,9 +1,12 @@
 import React, { useRef, useState } from "react";
 import Button from "./UI/Button";
+import Modal from "./UI/Modal";
 
 const Form = (props) => {
   // const [name, setName] = useState("");
   // const [age, setAge] = useState("");
+
+  const [error, setError] = useState("");
 
   const enteredName = useRef();
   const enteredAge = useRef();
@@ -20,6 +23,29 @@ const Form = (props) => {
       age,
       id: Math.random().toString(),
     };
+    if (!name || !age) {
+      setError({
+        title: "An error occured!",
+        message: "please enter valid inputs (non-empty-values).",
+      });
+      return;
+    }
+    if (!isNaN(+name)) {
+      setError({
+        title: "Oops!",
+        message: "Name of user must contain alphabatical characters.",
+      });
+      enteredName.current.value = "";
+      return;
+    }
+    if (age < 1) {
+      setError({
+        title: "An error occcured!",
+        message: "Please provide valid age.",
+      });
+      enteredAge.current.value = "";
+      return;
+    }
     console.log(dataFromForm);
     props.getFormData(dataFromForm);
     // setAge("");
@@ -28,8 +54,19 @@ const Form = (props) => {
     enteredAge.current.value = "";
   };
 
+  const errorHandler = () => {
+    setError(null);
+  };
+
   return (
     <>
+      {error && (
+        <Modal
+          title={error.title}
+          message={error.message}
+          errorHandler={errorHandler}
+        />
+      )}
       <form
         onSubmit={formHandler}
         className="w-11/12 max-w-2xl p-4 mx-auto my-8 bg-gray-200 rounded-md"
