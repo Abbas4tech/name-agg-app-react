@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
-import Button from "./UI/Button";
-import Modal from "./UI/Modal";
+import Button from "../UI/Button";
+import Modal from "../UI/Modal";
 
 const Form = (props) => {
   // const [name, setName] = useState("");

@@ -1,5 +1,5 @@
 import React from "react";
-import NoData from "./UI/NoData";
+import NoData from "../UI/NoData";
 import UserListItem from "./UserListItem";
 
 const UserList = (props) => {
