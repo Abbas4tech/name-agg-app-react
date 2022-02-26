@@ -1,15 +1,15 @@
 import { useState } from "react";
 import Form from "./components/Form/Form";
-import Users from "./components/Search Bar/Users";
+import Users from "./components/Users/Users";
 
 const usersData = [
   {
-    name: "Abbas",
+    name: "ABBAS",
     age: 22,
     id: Math.random().toString(),
   },
   {
-    name: "Anas",
+    name: "ANAS",
     age: 5,
     id: Math.random().toString(),
   },

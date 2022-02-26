@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import UserList from "../Users/UserList";
+import UserList from "./UserList";
 
 const Users = ({ userData, deleteHandler }) => {
   console.log(userData);
@@ -8,9 +8,8 @@ const Users = ({ userData, deleteHandler }) => {
 
   const searchInputHandler = (event) => {
     setSearchKeyword(event.target.value);
-    setSearchedData(
-      userData.filter((user) => user.name.includes(searchKeyword.trim()))
-    );
+    const keyword = searchKeyword.toUpperCase();
+    setSearchedData(userData.filter((user) => user.name.includes(keyword)));
   };
 
   return (

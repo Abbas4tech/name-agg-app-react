@@ -32,7 +32,7 @@ const Form = (props) => {
     }
     if (!isNaN(+name)) {
       setError({
-        title: "Oops!",
+        title: "Invalid Name!",
         message: "Name of user must contain alphabatical characters.",
       });
       // enteredName.current.value = "";
@@ -41,7 +41,7 @@ const Form = (props) => {
     }
     if (age < 1) {
       setError({
-        title: "An error occcured!",
+        title: "Invalid Age!",
         message: "Please provide valid age.",
       });
       // enteredAge.current.value = "";
@@ -77,7 +77,7 @@ const Form = (props) => {
         <input
           type="text"
           value={name} //========== Two Way Binding
-          onChange={(event) => setName(event.target.value)}
+          onChange={(event) => setName(event.target.value.toUpperCase())}
           // ref={enteredName}
           className="block w-full p-0.5 mb-2 border-2 border-black bg-inherit"
         />
