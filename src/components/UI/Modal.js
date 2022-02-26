@@ -6,7 +6,7 @@ const Modal = ({ title, message, errorHandler }) => {
   return (
     <>
       <Backdrop onHit={errorHandler} />
-      <section className="fixed z-20 w-11/12 max-w-lg mx-auto my-2 bg-white top-60 rounded-xl">
+      <section className="fixed z-20 max-w-lg mx-auto bg-white w-[90%] top-60 rounded-xl left-1/2 -translate-x-1/2">
         <header className="w-full p-4 h-15 bg-slate-800">
           <h1 className="text-white text-bold bg-inherit">{title}</h1>
         </header>

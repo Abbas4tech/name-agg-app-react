@@ -12,7 +12,7 @@ const UserList = (props) => {
   };
 
   return (
-    <ul className="w-11/12 h-full max-w-2xl p-4 mx-auto my-2 rounded-lg bg-slate-300">
+    <ul className="w-[90%] h-full max-w-2xl p-4 mx-auto my-2 rounded-lg bg-slate-300">
       {props.users.length === 0 ? ( //============= Conditional Statement
         <NoData />
       ) : (

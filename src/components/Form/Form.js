@@ -1,22 +1,22 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import Button from "../UI/Button";
 import Modal from "../UI/Modal";
 
 const Form = (props) => {
-  // const [name, setName] = useState("");
-  // const [age, setAge] = useState("");
+  const [name, setName] = useState("");
+  const [age, setAge] = useState("");
 
   const [error, setError] = useState("");
 
-  const enteredName = useRef();
-  const enteredAge = useRef();
-  console.log(enteredName);
-  console.log(enteredAge);
+  // const enteredName = useRef();
+  // const enteredAge = useRef();
+  // console.log(enteredName);
+  // console.log(enteredAge);
 
   const formHandler = (event) => {
-    const name = enteredName.current.value;
-    const age = enteredAge.current.value;
-    console.log(name, age);
+    // const name = enteredName.current.value;
+    // const age = enteredAge.current.value;
+    // console.log(name, age);
     event.preventDefault();
     const dataFromForm = {
       name,
@@ -35,7 +35,8 @@ const Form = (props) => {
         title: "Oops!",
         message: "Name of user must contain alphabatical characters.",
       });
-      enteredName.current.value = "";
+      // enteredName.current.value = "";
+      setName("");
       return;
     }
     if (age < 1) {
@@ -43,15 +44,16 @@ const Form = (props) => {
         title: "An error occcured!",
         message: "Please provide valid age.",
       });
-      enteredAge.current.value = "";
+      // enteredAge.current.value = "";
+      setAge("");
       return;
     }
     console.log(dataFromForm);
     props.getFormData(dataFromForm);
-    // setAge("");
-    // setName("");
-    enteredName.current.value = "";
-    enteredAge.current.value = "";
+    setAge("");
+    setName("");
+    // enteredName.current.value = "";
+    // enteredAge.current.value = "";
   };
 
   const errorHandler = () => {
@@ -69,22 +71,22 @@ const Form = (props) => {
       )}
       <form
         onSubmit={formHandler}
-        className="w-11/12 max-w-2xl p-4 mx-auto my-8 bg-gray-200 rounded-md"
+        className="max-w-2xl p-4 mx-auto mb-4 mt-8 bg-gray-200 rounded-md w-[90%]"
       >
         <label className="block mb-2 font-bold bg-inherit">Name :</label>
         <input
           type="text"
-          // value={name} //========== Two Way Binding
-          // onChange={(event) => setName(event.target.value)}
-          ref={enteredName}
+          value={name} //========== Two Way Binding
+          onChange={(event) => setName(event.target.value)}
+          // ref={enteredName}
           className="block w-full p-0.5 mb-2 border-2 border-black bg-inherit"
         />
         <label className="block mb-2 font-bold bg-inherit">Age :</label>
         <input
           type="number"
-          // value={age}
-          // onChange={(event) => setAge(event.target.value)}
-          ref={enteredAge}
+          value={age}
+          onChange={(event) => setAge(event.target.value)}
+          // ref={enteredAge}
           className="block w-full p-0.5 mb-2 border-2 border-black bg-inherit"
         />
         {/* <button type="submit">Submit</button> */}

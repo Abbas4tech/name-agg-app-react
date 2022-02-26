@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Form from "./components/Form/Form";
-import UserList from "./components/Users/UserList";
+import Users from "./components/Search Bar/Users";
 
 const usersData = [
   {
@@ -28,10 +28,8 @@ function App() {
 
   return (
     <>
-      <section className="flex flex-col items-center justify-between w-11/12 max-w-2xl mx-auto">
-        <Form getFormData={FormDataHandler} />
-        <UserList users={data} deleteHandler={deleteHandler} />
-      </section>
+      <Form getFormData={FormDataHandler} />
+      <Users userData={data} deleteHandler={deleteHandler} />
     </>
   );
 }
