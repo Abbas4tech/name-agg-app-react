@@ -8,7 +8,7 @@ const Users = ({ userData, deleteHandler }) => {
 
   const searchInputHandler = (event) => {
     setSearchKeyword(event.target.value);
-    const keyword = searchKeyword.toUpperCase();
+    const keyword = searchKeyword.trim().toUpperCase();
     setSearchedData(userData.filter((user) => user.name.includes(keyword)));
   };
 
