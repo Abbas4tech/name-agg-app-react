@@ -25,6 +25,7 @@ const Users = ({ userData, deleteHandler }) => {
       <UserList
         users={searchKeyword ? searchedData : userData}
         deleteHandler={!searchKeyword ? deleteHandler : ""}
+        errorMessage={searchKeyword ? "No Results Found!" : "No Data Found!"}
       />
     </React.Fragment>
   );

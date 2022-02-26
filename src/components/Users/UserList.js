@@ -1,5 +1,5 @@
 import React from "react";
-import NoData from "../UI/NoData";
+import Error from "../UI/Error";
 import UserListItem from "./UserListItem";
 
 const UserList = (props) => {
@@ -14,7 +14,7 @@ const UserList = (props) => {
   return (
     <ul className="w-[90%] h-full max-w-2xl p-4 mx-auto my-2 rounded-lg bg-slate-300">
       {props.users.length === 0 ? ( //============= Conditional Statement
-        <NoData />
+        <Error errorMessage={props.errorMessage} />
       ) : (
         props.users.map((user) => (
           <UserListItem
