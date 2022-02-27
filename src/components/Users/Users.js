@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import UserList from "./UserList";
 
 const Users = ({ userData, deleteHandler }) => {
-  console.log(userData);
   const [searchKeyword, setSearchKeyword] = useState("");
   const [searchedData, setSearchedData] = useState(userData);
 

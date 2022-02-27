@@ -18,7 +18,6 @@ const usersData = [
 function App() {
   const [data, setData] = useState(usersData);
   const FormDataHandler = (userData) => {
-    console.log(userData);
     setData([...data, userData]);
   };
 

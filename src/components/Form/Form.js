@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import Button from "../UI/Button";
 import Modal from "../UI/Modal";
 
@@ -8,53 +8,45 @@ const Form = (props) => {
 
   const [error, setError] = useState("");
 
-  // const enteredName = useRef();
-  // const enteredAge = useRef();
-  // console.log(enteredName);
-  // console.log(enteredAge);
+  const formHandler = useCallback(
+    (event) => {
+      event.preventDefault();
+      const dataFromForm = {
+        name,
+        age,
+        id: Math.random().toString(),
+      };
+      if (!name || !age) {
+        setError({
+          title: "An error occured!",
+          message: "please enter valid inputs (non-empty-values).",
+        });
+        return;
+      }
+      if (!isNaN(+name)) {
+        setError({
+          title: "Invalid Name!",
+          message: "Name of user must contain alphabatical characters.",
+        });
+        setName("");
+        return;
+      }
+      if (age < 1) {
+        setError({
+          title: "Invalid Age!",
+          message: "Please provide valid age.",
+        });
 
-  const formHandler = (event) => {
-    // const name = enteredName.current.value;
-    // const age = enteredAge.current.value;
-    // console.log(name, age);
-    event.preventDefault();
-    const dataFromForm = {
-      name,
-      age,
-      id: Math.random().toString(),
-    };
-    if (!name || !age) {
-      setError({
-        title: "An error occured!",
-        message: "please enter valid inputs (non-empty-values).",
-      });
-      return;
-    }
-    if (!isNaN(+name)) {
-      setError({
-        title: "Invalid Name!",
-        message: "Name of user must contain alphabatical characters.",
-      });
-      // enteredName.current.value = "";
-      setName("");
-      return;
-    }
-    if (age < 1) {
-      setError({
-        title: "Invalid Age!",
-        message: "Please provide valid age.",
-      });
-      // enteredAge.current.value = "";
+        setAge("");
+        return;
+      }
+      console.log(dataFromForm);
+      props.getFormData(dataFromForm);
       setAge("");
-      return;
-    }
-    console.log(dataFromForm);
-    props.getFormData(dataFromForm);
-    setAge("");
-    setName("");
-    // enteredName.current.value = "";
-    // enteredAge.current.value = "";
-  };
+      setName("");
+    },
+    [name, age]
+  );
 
   const errorHandler = () => {
     setError(null);
@@ -78,7 +70,6 @@ const Form = (props) => {
           type="text"
           value={name} //========== Two Way Binding
           onChange={(event) => setName(event.target.value.toUpperCase())}
-          // ref={enteredName}
           className="block w-full p-0.5 mb-2 border-2 border-black bg-inherit"
         />
         <label className="block mb-2 font-bold bg-inherit">Age :</label>
@@ -86,10 +77,9 @@ const Form = (props) => {
           type="number"
           value={age}
           onChange={(event) => setAge(event.target.value)}
-          // ref={enteredAge}
           className="block w-full p-0.5 mb-2 border-2 border-black bg-inherit"
         />
-        {/* <button type="submit">Submit</button> */}
+
         <Button type="submit">submit</Button>
       </form>
     </>
